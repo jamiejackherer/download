@@ -1,0 +1,21 @@
+#!/usr/bin/python3
+#-*- coding:utf-8 -*-
+
+from vidzi_link import vidzi_link, vidzi_title
+from dl import download_file
+import sys
+
+
+def dl(url):
+
+    print('[+] Extracting video file link from: {0} '.format(url))
+    link = vidzi_link(url)
+    print('[+] Found video file link: {0} '.format(link))
+    title = vidzi_title(url)
+    print('[+] Found video title {0}: '.format(title))
+    print('[+] Starting download...')
+    download_file(link, title)
+    print('[+] Done!')
+
+if __name__=='__main__':
+    dl(sys.argv[1])
